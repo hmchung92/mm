@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--Attach the myStore Module into HTML page with a Dicrective-->
+<html ng-app="musicManager">
+<head>
+    <meta charset="utf-8">
+    <title>Music Manager</title>
+    <meta name="keywords" content=''/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="shortcut icon"   href="../../assets/ico/favicon.ico">-->
+    <!-- Bootstrap CSS: -->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+</head>
+<body class="content">
+<header>
+    <music-header></music-header>
+</header>
+<section class="container-fluid">
+    <div class="row main-container">
+        <aside>
+            <music-sidebar></music-sidebar>
+        </aside>
+        <article>
+            <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+                <music-path></music-path>
+                <div ng-view></div>
+            </div>
+        </article>
+    </div>
+</section>
+<footer>
+    <music-footer></music-footer>
+</footer>
+
+<!-- AngularJS and standard modules: -->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+<!-- AngularJS UI-Bootstrap -->
+<script type="text/javascript" src="libs/ui-bootstrap-tpls-0.11.0.js"></script>
+<!-- JQuery sidr Menu -->
+<script type="text/javascript" src="bower_components/jquery/sidr/jquery.sidr.min.js"></script>
+<!-- My App -->
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/factorys/musicFactory.js"></script>
+<script type="text/javascript" src="scripts/controllers/musicController.js"></script>
+<script type="text/javascript" src="scripts/dialog/dialog.js"></script>
+<script type="text/javascript" src="scripts/directives/musicDirective.js"></script>
+</body>
+</html>
