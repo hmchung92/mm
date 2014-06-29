@@ -79,7 +79,7 @@
 	  $scope.cancel = function() {
 		$scope.list[i].name = name;
 		$scope.list[i].artist = artist;
-        $location.path('/');
+        $location.path('/MusicManager/');
       };
     });
 
