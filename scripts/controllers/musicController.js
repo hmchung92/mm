@@ -16,7 +16,7 @@
 	  $scope.cancel = function(){
         $location.path('/');
       };
-
+	
       $scope.addSong = function(music){
         var len   = $scope.list.length - 1;
         music.id  = $scope.list[len].id + 1;
@@ -79,7 +79,7 @@
 	  $scope.cancel = function() {
 		$scope.list[i].name = name;
 		$scope.list[i].artist = artist;
-        $location.path('/MusicManager/');
+        $location.path('/');
       };
     });
 
