@@ -1,3 +1,44 @@
+<div class="row placeholders top-article">
+    <div class="col-xs-6 col-sm-6 placeholder left2-title" style="text-align: left">
+                    <span id="title-nav">
+                        <h3>Manager Song</h3>
+                    </span>
+    </div>
+    <div class="col-xs-6 col-sm-6 placeholder left2-button" style=" padding: 15px 15px 0 0;">
+
+        <div class="input-group music-search" style="width: 100%;">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" style="border: none;background: none;margin-right: -40px;">
+                    <span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            <input type="text" class="form-control" ng-model="mm.search" style="border-radius: 15px;padding-left: 35px;">
+              <span class="input-group-btn" style="position: absolute;right: 35px;top: 0px;padding: 2px;">
+                <button class="btn btn-default" type="button" ng-click="clickRemove(); mm.search=''" style="border: none;background: inherit;">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </span>
+        </div>
+
+            <span class="form-inline btnCtrlRight">
+                <div class="form-group" id="content-header-right">
+                    <a href="#/new" class="" ng-click="goto(#/new)">
+                        <button type="button" class="btn btn-default" ng-click="go('/new')">
+                            <span class="glyphicon glyphicon-plus"></span> <span class="text-func">Add</span>
+                        </button>
+                    </a>
+                    <button type="button" class="btn btn-default" ng-click="removeSelectedRows()"
+                            ng-disabled="btnDelete">
+                        <span class="glyphicon glyphicon-trash"></span> <span class="text-func">Delete</span>
+                    </button>
+                    <!--<button type="button" class="btn btn-default" ng-click="">-->
+                    <!--<span class="glyphicon glyphicon-search"></span> <span class="text-func">Search</span>-->
+                    <!--</button>-->
+                    <music-search></music-search>
+                </div>
+            </span>
+    </div>
+</div>
+
 <div class="fixed-table-container">
     <div class="header-background"></div>
     <div class="fixed-table-container-inner">
@@ -5,24 +46,26 @@
             <thead>
             <tr>
                 <th width="3%">
-                    <input class="th-inner" type="checkbox" ng-model="isAll" ng-click="selectAllRows()"/>
+                    <!--<input class="th-inner" type="checkbox" ng-model="isAll" ng-click="selectAllRows()"/>-->
+                    <input class="th-inner" type="checkbox" ng-model="selectedAll" ng-click="checkAll()" />
                 </th>
-                <th width="47%">
+                <th width="40%">
                     <div class="th-inner">Names</div>
                 </th>
                 <th width="25%">
                     <div class="th-inner">Artist</div>
                 </th>
-                <th width="25%">
+                <th width="32%">
                     <div class="th-inner">Actions</div>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="item in list | filter: search | orderBy: 'id'"
+            <tr ng-repeat="item in list | filter: mm.search | orderBy: 'id'"
                 ng-class="{'success' : tableSelection[$index]}">
                 <td>
-                    <input id="{{item.name}}" type="checkbox" ng-model="item.done" ng-click="countClick($index)"/>
+                    <!--<input id="{{item.name}}" type="checkbox" ng-model="item.done" ng-click="countClick($index)"/>-->
+                    <input id="{{item.name}}" type="checkbox" ng-model="item.done" ng-click="myCheck()"/>
                 </td>
                 <td id="td-380">
                     <div id="item-full">
@@ -36,13 +79,20 @@
                         {{item.artist}}
                     </div>
                 </td>
-                <td class="td-actions">
+                <td class="td-actions"  ng-init="showPlay = true">
 
                     <a href="#/edit/{{item.id}}" class="">
                         <button type="button" class="btn btn-default" ng-click="go('/new')">
                             <span class="glyphicon glyphicon-edit"></span> <span class="text-func">Edit</span>
                         </button>
                     </a>
+                    <button type="button" class="btn btn-default" ng-show="showPlay" ng-click="showPlay =! showPlay; playMp3(item.mp3)">
+                        <span class="glyphicon glyphicon-play" ></span> <span class="text-func">Play</span>
+                    </button>
+                    <button type="button" class="btn btn-default" ng-show="!showPlay" ng-click="showPlay =! showPlay; pauseMp3()">
+                        <span class="glyphicon glyphicon-pause"></span>
+                        <span class="text-func">Pause</span>
+                    </button>
                 <span class="delete-icon">
                     <button type="button" class="btn btn-default" ng-click="remove(item)">
                         <span class="glyphicon glyphicon-trash"></span> <span class="text-func">Delete</span>

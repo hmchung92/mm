@@ -11,12 +11,9 @@
       $scope.navs.push('Create song');
 
       $scope.save = function(){
-        $location.path('/');
+        //$location.path('/');
       };
-	  $scope.cancel = function(){
-        $location.path('/');
-      };
-	
+
       $scope.addSong = function(music){
         var len   = $scope.list.length - 1;
         music.id  = $scope.list[len].id + 1;
@@ -56,11 +53,10 @@
 
     .controller('EditCtrl', function ($scope, $location, $routeParams){
       //$scope.name = $routeParams.name;
-      $scope.btnApply   	= true;
-      $scope.btnCreate  	= false;
-      var 	id            	= $routeParams.id,
-			name 			= '',
-			artist			= '';
+      $scope.btnApply   = true;
+      $scope.btnCreate  = false;
+      var id             = $routeParams.id;
+
       // Add music path
       $scope.navs.push('Edit song');
 
@@ -68,19 +64,15 @@
         if(angular.equals($scope.list[i].id+'', id)){
           $scope.music = $scope.list[i];
           $scope.name = $scope.list[i].name;
-		  name = $scope.list[i].name;
-		  artist = $scope.list[i].artist;
           break;
         }
       }
       $scope.save = function() {
         $location.path('/');
       };
-	  $scope.cancel = function() {
-		$scope.list[i].name = name;
-		$scope.list[i].artist = artist;
-        $location.path('/');
-      };
-    });
+    })
+
+
+  ;
 
 })();

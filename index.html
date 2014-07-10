@@ -13,8 +13,11 @@
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+
+
 </head>
 <body class="content">
+
 <header>
     <music-header></music-header>
 </header>
@@ -26,7 +29,11 @@
         <article>
             <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
                 <music-path></music-path>
+                <br/>
+                <div class="mm-mp3"></div>
+
                 <div ng-view></div>
+
             </div>
         </article>
     </div>
@@ -35,9 +42,10 @@
     <music-footer></music-footer>
 </footer>
 
+
 <!-- AngularJS and standard modules: -->
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
 <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -51,6 +59,7 @@
 <script type="text/javascript" src="scripts/app.js"></script>
 <script type="text/javascript" src="scripts/factorys/musicFactory.js"></script>
 <script type="text/javascript" src="scripts/controllers/musicController.js"></script>
+<!--<script type="text/javascript" src="scripts/controllers/checkall.js"></script>-->
 <script type="text/javascript" src="scripts/dialog/dialog.js"></script>
 <script type="text/javascript" src="scripts/directives/musicDirective.js"></script>
 </body>

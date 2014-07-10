@@ -1,18 +1,27 @@
 [
   {
+    "id": 0,
+    "name": "Trót Yêu",
+    "artist": "Trung Quân Idol",
+    "mp3": "Trot Yeu - Trung Quan Idol"
+  },
+  {
 	"id": 1,
     "name": "25 Minutes",
-    "artist": "Michael Learns To Rock"
+    "artist": "Michael Learns To Rock",
+    "mp3": "Trot Yeu - Trung Quan Idol"
   },
   {
 	"id": 2,
     "name": "As Long As You Love Me",
-    "artist": "Backstreet Boys"
+    "artist": "Backstreet Boys",
+    "mp3": "What The Hell - Avril Lavigne"
   },
   {
 	"id": 3,
     "name": "Heal The World",
-    "artist": "Michael Jackson"
+    "artist": "Michael Jackson",
+    "mp3": "ty"
   },
   {
 	"id": 4,

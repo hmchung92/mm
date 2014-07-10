@@ -35,7 +35,7 @@ angular.module('musicDirective',[])
   })
 
   //  sidr side menu the directive
-  .directive( 'sideMenu', function () {
+  .directive('sideMenu', function () {
     return {
       scope:    true,
       restrict: 'E',
@@ -63,11 +63,36 @@ angular.module('musicDirective',[])
   //  Music table the directive
   .directive('musicTable', function(){
     return{
-      scope:    true,
       restrict: 'E',
+      scope: {
+        list: '=mmData'
+      },
+      controller: 'ModalDemoCtrl',
       templateUrl:'views/music-table.html',
-      link: function(attrs){
-       
+      link: function(scope){
+        var u = angular.element('.text-artist');
+        var audioElement = angular.element('.mm-mp3');
+
+        u.hide();
+
+        scope.playMp3 = function(mp3){
+          var audio ='<audio id="video" controls autoplay loop> '+
+            '<source src="media/'+mp3+'.mp3" type="audio/mpeg">'+
+            '<source src="media/'+mp3+'.ogg" type="audio/ogg">'+
+            'Your browser does not support HTML5 video.'+
+            '</audio>';
+
+          if(audioElement.children().length>0){
+            audioElement.children(0).replaceWith(audio);
+          }
+          else{
+            audioElement.append(audio);
+          }
+
+        };
+        scope.pauseMp3 = function(){
+          audioElement.children(0).replaceWith('');
+        };
       }
     };
   })
@@ -83,29 +108,18 @@ angular.module('musicDirective',[])
 
         btnSearch.hide();
 
-        var w           = $(window).width(),
-            topArticle  = angular.element('.top-article'),
-            searchTop   = angular.element('.search-top');
-        searchTop.hide();
+        var topArticle  = angular.element('.top-article');
 
         $scope.clickSearch = function(){
-
-          if(w < 385) {
-            topArticle.hide();
-            searchTop.show();
-          }
-          else{
-            searchTop.hide();
-            btnCtrlRight.hide();
-            btnSearch.slideDown();
-          }
+          btnCtrlRight.hide();
+          btnSearch.slideDown();
         };
 
         $scope.clickRemove = function(){
           topArticle.show();
           btnCtrlRight.slideDown();
           btnSearch.hide();
-          searchTop.hide();
+//          searchTop.hide();
         };
 
       }

@@ -3,7 +3,10 @@ html {
     position: relative;
     min-height: 100%;
 }
-
+audio {
+    background: #000;
+    width: 100%;
+}
 body {
     padding-top: 50px;
 }

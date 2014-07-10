@@ -28,8 +28,8 @@
 			templateUrl: 'views/detail.html'
 		})
     .when('/playlists',{
-      controller: 'PlaylistsCtrl',
-      template: 'Playlists'
+//      controller: 'MyCtrl',
+      templateUrl: 'views/playlists.html'
     })
 		.otherwise({
 			redirecTo: '/songs'
